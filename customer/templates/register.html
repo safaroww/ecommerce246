@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load i18n %}
+
+
+
+{% block main %}
+<body>
+    <div class="d-flex justify-content-center">
+    <div class="contact-form w-25 bg-light p-30">
+        <form name="Login" action="{% url "register" %}" method="POST">
+            {% csrf_token %}
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+            {% endif %}
+            {{form}}
+            
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary  py-3 px-5" type="submit" >{% trans "Register" %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+{% endblock main %}
