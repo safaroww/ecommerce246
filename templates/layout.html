@@ -115,15 +115,23 @@
                 </a>
             </div>
             <div class="col-lg-4 col-6 text-left">
-                <form action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
+                <form action="{% url "search" %}" method="get">
+                    {% if message %}
+                        <p class="help-block text-danger">{{message}}</p>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="search" placeholder="Search for products">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary py-1 px-3" type="submit">Search</button>
+                            </div>
                         </div>
-                    </div>
+                    {% else %}
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="search" placeholder="Search for products">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary py-1 px-3" type="submit">Search</button>
+                            </div>
+                        </div>
+                    {% endif %}
                 </form>
             </div>
             <div class="col-lg-4 col-6 text-right">

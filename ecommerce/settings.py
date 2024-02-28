@@ -161,3 +161,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ulviisfandiyarli0@gmail.com'
 EMAIL_HOST_PASSWORD = 'ekicyuxmydhfethg'
 EMAIL_USE_TLS = True
+
+
+# ulvI123.a

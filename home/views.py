@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Campaign
 from .forms import ContactForm
-from shop.models import Category
+from shop.models import Category, Product
 
 # Create your views here.
 
@@ -23,3 +23,11 @@ def contact(request):
         form = ContactForm()
         return render(request, "contact.html", {'form': form})
     return render(request, "contact.html", {'message': 'Your message has been sent!', 'sent': True})
+
+def search_view(request):
+    show_search = request.GET.get('search')
+    down = Product.objects.filter(name__icontains=show_search)
+    if down:
+        return render(request, "search.html", {'products': down})
+    else:
+        return render(request, "search.html", {'message': 'No results found!'})
